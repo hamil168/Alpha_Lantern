@@ -24,15 +24,15 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 import string
-
-### from keras.models import load_model ### <--- may not be necessary here
+#import keras
+#from keras.models import load_model ### <--- may not be necessary here
 
 stop_words = stopwords.words('english')
 exclude_chars = set(string.punctuation)
 lemma = WordNetLemmatizer()
 
 ### CONFIGURATION:
-from model_config.py import WORD2VEC_MODEL, INPUT_LENGTH_LIMIT, W2V_LENGTH
+from model_config import WORD2VEC_MODEL, INPUT_LENGTH_LIMIT, W2V_LENGTH, CLASSIFICATION_THRESHOLD
 
 # note: importing WORD2VEC_MODEL will initialize the word2vec model,
 # which can take several seconds as it is quite large.
