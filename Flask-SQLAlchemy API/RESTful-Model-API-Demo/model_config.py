@@ -11,7 +11,7 @@ NOTE: if the model input changes INPUT_LENGTH_LIMIT must change
 OTHER NOTE: initializing WORD2VEC_MODEL can take several seconds
 
 """
-
+import gensim
 
 WORD2VEC_MODEL = gensim.models.KeyedVectors.load_word2vec_format('./model/GoogleNews-vectors-negative300.bin', binary=True)
 INPUT_LENGTH_LIMIT = 6  # specific to NSV_Hackfest model
