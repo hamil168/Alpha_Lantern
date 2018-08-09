@@ -94,6 +94,6 @@ if __name__ == '__main__':
    db.create_all()
 
    with graph.as_default():
-       ml_model = load_model('model.h5')
+       ml_model = load_model('./ml_model/model.h5')
 
    app.run(debug = True)
