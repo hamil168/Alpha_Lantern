@@ -8,12 +8,12 @@ on individual user inputs in a deployed model
 Called by model_utils.py
 
 NOTE: if the model input changes INPUT_LENGTH_LIMIT must change
-OTHER NOTE: initializing WORD2VEC_MODEL can take several seconds
+OTHER NOTE: initializing WORD2VEC_MODEL can take a minute or more
 
 """
 import gensim
 
-WORD2VEC_MODEL = gensim.models.KeyedVectors.load_word2vec_format('./model/GoogleNews-vectors-negative300.bin', binary=True)
+WORD2VEC_MODEL = gensim.models.KeyedVectors.load_word2vec_format('./w2v_model/GoogleNews-vectors-negative300.bin', binary=True)
 INPUT_LENGTH_LIMIT = 6  # specific to NSV_Hackfest model
 W2V_LENGTH = 300 # sepecific to this model
 CLASSIFICATION_THRESHOLD = 0.8 # cutoff for positive classification
