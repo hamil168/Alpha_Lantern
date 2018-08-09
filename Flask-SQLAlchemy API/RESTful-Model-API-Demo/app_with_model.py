@@ -22,6 +22,8 @@ db = SQLAlchemy(app)
 # Initialize the ML model
 from model_utils import *
 
+# this is needed to make sure the ML model's get_default_graph
+# stays consistent across the boundaries of the flask object
 global graph
 graph = tf.get_default_graph()
 
