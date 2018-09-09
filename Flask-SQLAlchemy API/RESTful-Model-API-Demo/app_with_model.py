@@ -8,8 +8,13 @@ from keras.models import load_model
 import keras
 from keras import backend as K
 import tensorflow as tf
+import numpy as np
 
 #K.clear_session()
+input_behavior = []
+stack = ["Tell me more!", "Tell me more!", "Thanks for the initial information. Now, tell me about Subject's recent behaviour?", "Thanks You! What is the Subject's Age?",
+"Please provide Subject User-Id", "Great! Please help with some information here", 
+"Would you like my help in understanding student behaviour and help them better?"]
 
 #Initialize Flask object and Database info
 app = Flask(__name__)
@@ -27,7 +32,7 @@ from model_utils import *
 global graph
 graph = tf.get_default_graph()
 
-# The class that contains all student info
+# The class that contains all student information
 # added v_classes for violence Classification
 # which will tentatively be returned as a string of 0's and 1s i.e. '0100'
 class students(db.Model):
@@ -53,37 +58,48 @@ class students(db.Model):
 # Shows the web front end, refreshing to show all database entries
 # The '/' means anytime the url ends in '/', instead of a specific html file
 @app.route('/')
-def show_all():
-   return render_template('show_all.html', students = students.query.all() )
+def chatbot():
+   return render_template('new.html')
 
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')
+    if len(stack) <= 2:
+      input_behavior.append(userText)
+    if len(stack) == 0:
+      with graph.as_default():
+        op1 = user_classification(input_behavior[0],ml_model)[0]
+        op2 = user_classification(input_behavior[1],ml_model)[0]
+        op3 = user_classification(input_behavior[2],ml_model)[0]
+        return str(op1) + str(op2) + str(op3)
+    return str(stack.pop())
 
+# # Get info POST'd from the front end, check its validit
+# # If valid, populate the object 'student' with the entered info
+# @app.route('/new', methods = ['GET', 'POST'])
+# def new():
+#     if request.method == 'POST':
 
-# Get info POST'd from the front end, check its validit
-# If valid, populate the object 'student' with the entered info
-@app.route('/new', methods = ['GET', 'POST'])
-def new():
-    if request.method == 'POST':
+#         if not request.form['name'] or not request.form['city'] or not request.form['behavior']:
+#             flash('Please enter all the fields', 'error')
+#         else:
+#             with graph.as_default():
+#                 student = students(request.form['name'], request.form['city'],
+#                 request.form['behavior'], request.form['pin'],
+#                 user_classification(request.form['behavior'],ml_model)[0])
 
-        if not request.form['name'] or not request.form['city'] or not request.form['behavior']:
-            flash('Please enter all the fields', 'error')
-        else:
-            with graph.as_default():
-                student = students(request.form['name'], request.form['city'],
-                request.form['behavior'], request.form['pin'],
-                user_classification(request.form['behavior'],ml_model)[0])
+#                  # Add student info to the DB
+#                 db.session.add(student)
+#                 db.session.commit()
 
-                 # Add student info to the DB
-                db.session.add(student)
-                db.session.commit()
+#                 flash('Record was successfully added')
 
-                flash('Record was successfully added')
+#          # Go to the show_all page, refreshing the front end
 
-         # Go to the show_all page, refreshing the front end
+#         return redirect(url_for('show_all'))
 
-        return redirect(url_for('show_all'))
-
-    # if not POST, go to the 'new' page, which will run the new() function
-    return render_template('new.html')
+#     # if not POST, go to the 'new' page, which will run the new() function
+#     return render_template('new.html')
 
 
 

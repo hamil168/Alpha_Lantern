@@ -105,9 +105,8 @@ def user_classification(user_input, model):
 
     yp = []
     for label in y_pred:
-        val = ""
         for x in label:
-
-            val = val + str(int(0 if x < CLASSIFICATION_THRESHOLD else 1))
+            val = x
         yp.append(val)
+    print yp 
     return yp
