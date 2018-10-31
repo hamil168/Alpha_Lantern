@@ -12,3 +12,5 @@ Here we are assembling the components for a basic web implementation of the LSTM
 ***NOTES:***
 - Both DEMOs are built on the same basic Flask and Flask-SQLAlchemy backbone. They can both be connected to a database or adapted with other RESTful API endpoints.
 - The LANGUAGE MODEL (gensim + googlenews word2vec) is very slow to load for development purposes. A lighter model should be used until a bigger one is required for model accuracy. As of this writing, that model has not been chosen nor a substitute ML model trained. Those should be high priorities.
+
+***MS Consultants (MargaretMeehan's) adaptation of MS Meeting Prep DEMO for the MS SLT presentation***: forked here: https://github.com/NoSchoolViolence/nsv-demo (may move in full later, still need to decide final bookeeping)
