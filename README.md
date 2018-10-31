@@ -1,7 +1,7 @@
 # Alpha_Lantern
 *Putting the pieces together.*
 
-Here we are assembling the components for a basic web implementation of the LSTM Lantern application.
+Here we are assembling the components for a basic web implementation of the LSTM Lantern application after the MS Hackfest in May 2018
 
 **Folders:**
 
