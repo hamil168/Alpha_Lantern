@@ -4,7 +4,7 @@ Contents:
 
 **app.py**: RESTful API scripted in Python, using flask and sqlalchemy. It connects front end, database, and the ml model.
 
-**index.html**: Front end of the MS Meeting Prep Demo. This needs to be running on its own.
+**index.html**: Front end of the MS Meeting Prep Demo that needs to be running on its own.
 
 *TO RUN:*
 - index.html and app.py need to be changed from local host ...
