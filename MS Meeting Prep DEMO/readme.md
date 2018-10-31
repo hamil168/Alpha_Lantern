@@ -1,4 +1,4 @@
-# Alpha_Lantern DEMO: Prep for 9/13 MS Meeting
+## Alpha_Lantern DEMO: Prep for 9/13 MS Meeting
 
 Contents:
 
