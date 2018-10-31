@@ -1,6 +1,8 @@
 ## Alpha_Lantern DEMO: Prep for 9/13 MS Meeting
 
-Contents:
+
+
+_Contents_:
 
 **app.py**: RESTful API scripted in Python, using flask and sqlalchemy. It connects front end, database, and the ml model.
 
