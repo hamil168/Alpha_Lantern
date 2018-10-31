@@ -1,12 +1,8 @@
-## Early-Stage PoC API ##
-# TODO:
+# Alpha_Lantern DEMO: Early stage PoC API for Web-Model-DB
+### TODO:
+- Connect DB to Azure DB
 
-
-### Using Flask (for web interface) and Flask-SQLAlchemy (for database interface)
-***They're two different but related things***
-
-Example adapted from web examples.
-
+### Uses Flask (for web interface) and Flask-SQLAlchemy (for database interface)
 How to Use:
 - Install flask and flask-sqlalchemy on your environment
 - Put the api python script in the folder of your choice
@@ -15,7 +11,6 @@ How to Use:
 - run the python script from the command line
 
 ### Resources for building a RESTful ML Model API using Flask
-
 Tutorial/Blog:
 https://www.toptal.com/python/python-machine-learning-flask-example
 

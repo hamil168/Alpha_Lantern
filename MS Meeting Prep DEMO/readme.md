@@ -19,3 +19,7 @@ Contents:
 **[ml_model]**: folder containing the serialized LSTM machine learning model from the NoSchoolViolence/NSV_Hackfest repo.
 
 **[w2v_model]**: empty folder that requires the language model. They can be very large, so it is here as a placeholder.
+
+**(*.gif and *.jpg)**: graphics for index.html
+
+**[demo video]**: two short videos of the program in action
