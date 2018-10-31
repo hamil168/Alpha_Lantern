@@ -7,9 +7,8 @@ Contents:
 **index.html**: Front end of the MS Meeting Prep Demo. This needs to be running on its own.
 
 *TO RUN:*
-- index.html and app.py need to be checked for local host hard-scripting before deploying to Azure.
-
-
+- index.html and app.py need to be changed from local host ...
+- ex: search for var url = 'http://localhost:5000/predict.json'
 
 **model_config.py**: configuration settings for the machine learning model.
 
